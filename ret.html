@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+        </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color:lightcyan ;">
+    <form >
+      <input type="text" id="name" name="name">
+      <center> <input value="display" type="button" onclick="fun()"><br><br><br></center> 
+       
+      <table id="result">
+      </table>
+        
+        
+    </form>
+    <script >
+      function fun(){
+        alert("ok");
+        const name1= String(document.querySelector("#name").value);
+        fetch('http://localhost:5000/get',{
+            mode:'cors',
+            method:'POST',
+            headers:{
+                'Content-type':'application/json'
+            },
+            body:JSON.stringify({
+             name:name1
+            })
+            
+        })
+        .then((e)=>{
+            
+            return e.json()  
+        })
+        .then(async(e1)=>
+        {  
+            
+            if(e1.length!=0)
+            {
+            
+            let temp =`<tr>
+            <th>name</th>
+            
+          </tr>` ;
+            
+            // Loop through each data and add a table row
+            for(let d of e1)
+            {
+
+                temp +=`<tr>
+                <th>${d.name}</th>
+                
+              </tr>
+                  `;
+                
+            }
+
+        document.getElementById("result").innerHTML = temp;
+        }
+        else{
+            document.getElementById("result").innerHTML = "No record found";
+        }
+          
+        })
+        .catch(async()=>{
+            console.log("ERROR");
+            result.innerHTML="ERROR";
+        })
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: lightcyan;">
+    <form method="post" action="/">
+        <br>
+        <br><br>
+       <center> <input type="text" name="roll" id="roll">
+        <input type="button" value="Select" id="button"></center>
+        <br>
+        <br><br>
+        <table  ><tr>
+            <th>Name</th>
+
+        <th id="res1"></th></tr>
+            <tr >
+                <th>Roll No</th>
+
+           <th id="res2"></th></tr>
+            <tr>
+                <th>Gender</th>
+                <th id="res3"></th></tr>
+
+            <tr><th>Department</th> <th id="res4"></th></tr>
+        </table><br><br>
+        <h1>Enter fields to update</h1><br>
+
+        name<input type="text"  id="n1" >
+        
+        <input type="button" value="Update" id="button1">
+    </form>
+    <script src="./tab.js"></script>
+</body>
+</html>
